@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-project(dmqtproject)
+project(dmscreentime)
 
 LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 INCLUDE(cmake/ModuleImport.cmake)
@@ -48,5 +48,5 @@ qt_wrap_ui(UIS_HEADERS ${UI_FILES})
 
 # 最终添加到目标
 add_executable(ScreenTime ${ST_FILES} ${UI_FILES} ${UIS_HEADERS} ${QT_RESOURCES})
-
+target_include_directories(ScreenTime PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 target_link_libraries(ScreenTime Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Sql)
